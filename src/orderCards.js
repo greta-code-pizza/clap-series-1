@@ -9,8 +9,20 @@
  * 
  * On considère que la valeur de la carte prime sur le type de la carte
  */
+
+const VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+const TYPES = ["d", "c", "h", "s"]
+
+
 function orderCards(cards) {
-  // CODE HERE
+    return cards.sort((x, y) => cardVal(x) - cardVal(y)).reverse()
+}
+
+function cardVal(card) {
+  let val = `${VALUES.indexOf(card.split('').slice(0, card.length - 1).join()) + 1}`
+  let type = `${TYPES.indexOf(card.split('')[card.length-1]) + 1}`
+
+  return parseInt(val + type)
 }
 
 export { orderCards };

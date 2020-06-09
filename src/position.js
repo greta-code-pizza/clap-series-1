@@ -11,7 +11,9 @@ const SOLAR_SYSTEM =
   ['Sun', 'Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
 
 function position(planet) {
-  // CODE HERE
+  let sanitizePlanet = planet.charAt(0).toUpperCase() + planet.slice(1).toLowerCase()
+
+  return SOLAR_SYSTEM.indexOf(sanitizePlanet);
 }
 
 export { position };

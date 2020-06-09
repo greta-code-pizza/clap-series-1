@@ -28,7 +28,26 @@ const CARDS = {
 }
 
 function occurences(cards) {
-  // CODE HERE
+  let occ = {}
+
+  cards
+    .map(c => c.split('').slice(0, c.length - 1).join())
+    .forEach(val => {
+      Object.entries(CARDS).forEach(card => {
+        let k = card[0]
+        let v = card[1]
+
+        if(v == val) {
+          if(occ[k]) {
+            occ[k] += 1
+          } else {
+            occ[k] = 1
+          }
+        }
+      });
+    });
+
+    return occ
 }
 
 export { occurences };
