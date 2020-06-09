@@ -6,11 +6,7 @@
  * alors plusArray(arr1, arr2) retournera 30 
  */
 function plusArray(arr1, arr2) {
-  let i = 0
-  arr1.forEach(x => i += x)
-  arr2.forEach(y => i += y)
-
-  return i
+  return [arr1, arr2].flat().reduce((x, y) => x + y)
 }
 
 export { plusArray };

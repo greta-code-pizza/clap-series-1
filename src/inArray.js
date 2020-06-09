@@ -9,4 +9,4 @@ function inArray(ary, val) {
   return ary.includes(val)
 }
 
-export { inArray };
+export { inArray }

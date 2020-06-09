@@ -13,13 +13,9 @@
 function funnyArray(ary) {
   let l = ary.length
   
-  if (l === 0) { return "rien" }
-
-  if(l % 2 === 0) {
-    return ary[l/2 - 1] + ary[l/2]
-  } else {
-    return ary[Math.round(l/2 - 1)] 
-  }
+  if (l === 0) return "rien" 
+  else if(l % 2 === 0) return ary[l/2 - 1] + ary[l/2]
+  else return ary[Math.round(l/2 - 1)] 
 }
 
-export { funnyArray };
+export { funnyArray }

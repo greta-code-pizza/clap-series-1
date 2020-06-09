@@ -11,8 +11,10 @@
  */
 
 function isAPair(cards) {
-  let vals = cards.map(c => c.split('').slice(0,c.length - 1).join())
-  return new Set(vals).length < 7
+  let vals = 
+    cards.map(c => c.split('').slice(0,c.length - 1).join())
+  return new Set(vals).size < 7
 }
 
-export { isAPair };
+export { isAPair }
+

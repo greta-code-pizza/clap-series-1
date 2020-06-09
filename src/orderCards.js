@@ -15,14 +15,16 @@ const TYPES = ["d", "c", "h", "s"]
 
 
 function orderCards(cards) {
-    return cards.sort((x, y) => cardVal(x) - cardVal(y)).reverse()
+    return cards.sort((x, y) => cardVal(y) - cardVal(x))
 }
 
 function cardVal(card) {
-  let val = `${VALUES.indexOf(card.split('').slice(0, card.length - 1).join()) + 1}`
-  let type = `${TYPES.indexOf(card.split('')[card.length-1]) + 1}`
+  let val = 
+    `${VALUES.indexOf(card.split('').slice(0, card.length - 1).join()) + 1}`
+  let type = 
+    `${TYPES.indexOf(card.split('')[card.length-1]) + 1}`
 
   return parseInt(val + type)
 }
 
-export { orderCards };
+export { orderCards }
