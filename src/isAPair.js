@@ -10,10 +10,13 @@
  * - Le type de la carte : s => ♠, h => ♥, c => ♣, d => ♦
  */
 
+import { cardsByValues } from "../src/occurences"
+
 function isAPair(cards) {
-  let vals = 
-    cards.map(c => c.split('').slice(0,c.length - 1).join())
-  return new Set(vals).size < 7
+  let cardsValues = cardsByValues(cards)
+  let vals = Object.values(cardsValues).map(v => v.length)
+  
+  return vals.includes(2)
 }
 
 export { isAPair }

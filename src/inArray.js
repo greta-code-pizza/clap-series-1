@@ -5,6 +5,7 @@
  * ary = ["2d", "5s", "Ah"] val = "Ah" alors inArray(ary, val) retournera true
  * ary = ["2d", "5s", "Ah"] val = "2h" alors inArray(ary, val) retournera false
  */
+
 function inArray(ary, val) {
   return ary.includes(val)
 }

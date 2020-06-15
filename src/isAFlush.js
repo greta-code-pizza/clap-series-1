@@ -10,12 +10,14 @@
  * - Le type de la carte : d => ♦, c => ♣, h => ♥, s => ♠
  */
 
+import Card from "../src/Card"
+
 function isAFlush(cards) {
   let occ = {}
   let isAFlush = false
 
   cards
-    .map(c => c.split('')[c.length-1])
+    .map(c => new Card(c).type())
     .forEach(color => {
       if(occ[color] && occ[color] === 4) {
         isAFlush = true

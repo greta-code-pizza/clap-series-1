@@ -11,29 +11,32 @@
  * 
  */
 
-const VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
-const TYPES = ["d", "c", "h", "s"]
+import Deck from "../src/Deck"
+
+// const VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+// const TYPES = ["d", "c", "h", "s"]
 
 
 // Monkey Patching
-Array.prototype.shuffle = function ()  {
-  let ary = this;
-  let shuffled = [];
+// Array.prototype.shuffle = function ()  {
+//   let ary = this;
+//   let shuffled = [];
 
-  while(ary.length > 0) {
-    let i = Math.floor(Math.random() * ary.length)
+//   while(ary.length > 0) {
+//     let i = Math.floor(Math.random() * ary.length)
 
-    shuffled.push(ary[i])
-    ary.splice(i, 1)
-  }
+//     shuffled.push(ary[i])
+//     ary.splice(i, 1)
+//   }
 
-  return shuffled
-}
+//   return shuffled
+// }
 
 function dealer() {
-  let deck = VALUES.map(v => TYPES.map(t => v + t)).flat().shuffle()
+  let deck = new Deck()
+  deck.shuffle()
 
-  return [deck.slice(0, 5), deck.slice(5, 10)]
+  return [deck.cards.slice(0, 5), deck.cards.slice(5, 10)]
 }
 
 

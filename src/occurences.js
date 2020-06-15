@@ -11,43 +11,39 @@
  *
  */
 
-const CARDS = {
-  as: "A",
-  king: "K",
-  queen: "Q",
-  jack: "J",
-  ten: "10",
-  nine: "9",
-  height: "8",
-  seven: "7",
-  six: "6",
-  five: "5",
-  four: "4",
-  three: "3",
-  two: "2"
-}
+import Card from "../src/Card"
 
 function occurences(cards) {
   let occ = {}
 
-  cards
-    .map(c => c.split('').slice(0, c.length - 1).join())
-    .forEach(val => {
-      Object.entries(CARDS).forEach(card => {
-        let k = card[0]
-        let v = card[1]
+  Object.entries(cardsByValues(cards)).map(c => {
+    let k = c[0].substring(0, c[0].length - 1)
+    let v = c[1].length
 
-        if(v == val) {
-          if(occ[k]) {
-            occ[k] += 1
-          } else {
-            occ[k] = 1
-          }
-        }
-      });
-    });
+    occ[k] = v
+  });
 
-    return occ
+
+  return occ
 }
 
-export { occurences };
+function cardsByValues(cards) {
+  let cardsKeys = {}
+
+  cards
+    .map(c => new Card(c))
+    .forEach(card => {
+      let label = card.valueLabel() + "s"
+
+      if(cardsKeys[label]) {
+        cardsKeys[label].push(card)
+      } else {
+        cardsKeys[label] = [card]
+      }
+    })
+
+    return cardsKeys
+
+}
+
+export { occurences, cardsByValues };
