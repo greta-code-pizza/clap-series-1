@@ -1,3 +1,7 @@
+import { isAFull } from "./isAFull";
+import { isAFlush } from "./isAFlush";
+import { isAPair } from "./isAPair";
+
 /*
  * /!\ À faire à la fin, seul ou en groupe !
  * Les tableaux cards1 et cards2 contiennent 5 cartes. L'objectif est de retourner le tableau contenant le 
@@ -11,7 +15,28 @@
  * 
  */
 function compareCombos(cards1, cards2) {
-  // CODE HERE
+  let scoreCards1 = scoreCards(cards1)
+  let scoreCards2 = scoreCards(cards2)
+
+  if(scoreCards1 < scoreCards2) {
+    return cards2
+  } else {
+    return cards1
+  }
 }
+
+function scoreCards(cards) {
+  if(isAFull(cards)) {
+    return 4
+  } else if(isAFlush(cards)) {
+    return 3
+  } else if (isAPair(cards)) {
+    return 2
+  } else {
+    return 1
+  }
+}
+
+
 
 export { compareCombos };
